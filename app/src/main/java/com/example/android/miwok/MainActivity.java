@@ -17,6 +17,8 @@ package com.example.android.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,5 +28,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+
+        TextView textView = (TextView) this.findViewById(R.id.numbers);
+        //Just checking if textView is null so that we don't get a warning
+        if (textView != null)
+            textView.setOnClickListener(new CategoryClickListener(this, NumbersActivity.class));
+
+        textView = (TextView) this.findViewById(R.id.family);
+        if (textView != null)
+            textView.setOnClickListener(new CategoryClickListener(this, FamilyActivity.class));
+
+        textView = (TextView) this.findViewById(R.id.colors);
+        if (textView != null)
+            textView.setOnClickListener(new CategoryClickListener(this, ColorsActivity.class));
+
+        textView = (TextView) this.findViewById(R.id.phrases);
+        if (textView != null)
+            textView.setOnClickListener(new CategoryClickListener(this, PhrasesActivity.class));
     }
+
 }
